@@ -42,7 +42,10 @@ jobs:
           command: |
             pip install webdriver-manager -U
             google-chrome --version
-            pytest
+
+      - run:
+          name: run tests
+          command: pytest
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
