@@ -49,6 +49,11 @@ jobs:
           name: run tests
           command: pytest --alluredir=allure-results
 
+      - run:
+          name: generate allure report
+          command: allure generate --clean
+          when: always
+
       - allure/report
 
 # Invoke jobs via workflows
