@@ -47,7 +47,7 @@ jobs:
 
       - run:
           name: run tests
-          command: pytest --timeout=200 --alluredir=allure-results
+          command: pytest --alluredir=allure-results
 
       - allure/report
 
