@@ -79,7 +79,7 @@ jobs:
 
       - run:
           name: generate allure report
-          command: allure generate --clean
+          command: allure generate
           when: always
 
       - allure/report
@@ -91,6 +91,20 @@ workflows:
     # Inside the workflow, you define the jobs you want to run.
     jobs:
       - build-and-test
+    triggers:
+      - schedule:
+          cron: "6 * * *"
+          filters:
+            branches:
+              only:
+                - main
   2ndworkflow:
     jobs:
       - check-2nd-job
+    triggers:
+      - schedule:
+          cron: "12 * * *"
+          filters:
+            branches:
+              only:
+                - main
