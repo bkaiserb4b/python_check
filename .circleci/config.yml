@@ -87,10 +87,8 @@ jobs:
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
-  sample: # This is the name of the workflow, feel free to change it to better match your workflow.
-    # Inside the workflow, you define the jobs you want to run.
-    jobs:
-      - build-and-test
+
+  sample:
     triggers:
       - schedule:
           cron: "6 2 * * *"
@@ -98,6 +96,18 @@ workflows:
             branches:
               only:
                 - main
+                # This is the name of the workflow, feel free to change it to better match your workflow.
+    # Inside the workflow, you define the jobs you want to run.
+    jobs:
+      - build-and-test
   2ndworkflow:
+    triggers:
+      - schedule:
+          cron: "8 2 * * *"
+          filters:
+            branches:
+              only:
+                - main
     jobs:
       - check-2nd-job
+
