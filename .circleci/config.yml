@@ -101,10 +101,3 @@ workflows:
   2ndworkflow:
     jobs:
       - check-2nd-job
-    triggers:
-      - schedule:
-          cron: "11 2 * * *"
-          filters:
-            branches:
-              only:
-                - main
