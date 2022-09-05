@@ -51,7 +51,7 @@ jobs:
 
       - run:
           name: generate allure report
-          command: allure generate --clean
+          command: allure generate --clean --output allure-report
           when: always
 
       - store_artifacts:
@@ -80,7 +80,7 @@ jobs:
 
       - run:
           name: generate allure report
-          command: allure generate --clean
+          command: allure generate --clean --output allure-report1
           when: always
 
       - store_artifacts:
