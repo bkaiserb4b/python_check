@@ -47,14 +47,15 @@ jobs:
 
       - run:
           name: run tests
-          command: pytest --alluredir=allure-results
+          command: pytest --alluredir=allure-results1
 
       - run:
           name: generate allure report
-          command: allure generate --clean
+          command: allure generate --clean --output allure-report1
           when: always
 
-      - allure/report
+      - store_artifacts:
+          path: /home/circleci/project/allure-report1
 
   check-2nd-job:
     docker:
@@ -82,7 +83,8 @@ jobs:
           command: allure generate --clean --output allure-report
           when: always
 
-      - allure/report
+      - store_artifacts:
+          path: /home/circleci/project/allure-report
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
