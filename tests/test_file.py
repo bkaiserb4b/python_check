@@ -25,7 +25,7 @@ def test_answer():
     #     .first.should(not have.text('Selenium automates browsers'))
     assert browser.element('#rememberMe').click().should_not(be.selected)
     time.sleep(1)
-    browser.element(by.class_name('tagline')).should(have.text('Remember'))
+    browser.element(by.class_name('tagline')).should(have.text('Rememberee'))
 
 
 def test_another():
