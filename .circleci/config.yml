@@ -97,6 +97,5 @@ workflows:
       - build-and-test
   2ndworkflow:
     jobs:
-      - check-2nd-job:
-          type: approval
+      - check-2nd-job
 
