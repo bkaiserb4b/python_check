@@ -95,6 +95,13 @@ workflows:
     # Inside the workflow, you define the jobs you want to run.
     jobs:
       - build-and-test
+    triggers:
+      - schedule:
+          cron: "0 14 * * *"
+          filters:
+            branches:
+              only:
+                - main
   2ndworkflow:
     jobs:
       - check-2nd-job:
@@ -102,4 +109,11 @@ workflows:
       - check-2nd-job:
           requires:
             - check-2nd-job
+    triggers:
+      - schedule:
+          cron: "5 14 * * *"
+          filters:
+            branches:
+              only:
+                - main
 
