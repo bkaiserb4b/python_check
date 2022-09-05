@@ -90,6 +90,8 @@ jobs:
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
 
+  version: 2
+
   sample:
                 # This is the name of the workflow, feel free to change it to better match your workflow.
     # Inside the workflow, you define the jobs you want to run.
@@ -103,17 +105,18 @@ workflows:
               only:
                 - main
   2ndworkflow:
+    triggers:
+      - schedule:
+          cron: "30 14 * * *"
+          filters:
+            branches:
+              only:
+                - main
     jobs:
       - check-2nd-job:
           type: approval
       - check-2nd-job:
           requires:
             - check-2nd-job
-    triggers:
-      - schedule:
-          cron: "58 13 * * *"
-          filters:
-            branches:
-              only:
-                - main
+
 
