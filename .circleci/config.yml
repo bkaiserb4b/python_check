@@ -98,5 +98,5 @@ workflows:
   2ndworkflow:
     jobs:
       - check-2nd-job:
-        type: approval
+          type: approval
 
