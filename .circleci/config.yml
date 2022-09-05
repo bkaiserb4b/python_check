@@ -70,8 +70,10 @@ jobs:
 
       - store_artifacts:
           path: /home/circleci/project/allure-report
-      - notify_slack_error
-      - notify_slack_pass
+      - run:
+          name: slack notification
+          command: |
+          curl -X POST -H 'Content-type: application/json' --data '{"text":"Hello, World!"}' https://hooks.slack.com/services/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
 
   check-2nd-job:
     docker:
