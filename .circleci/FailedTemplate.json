@@ -56,9 +56,17 @@
 					"type": "button",
 					"text": {
 						"type": "plain_text",
-						"text": "View Job"
+						"text": "View report"
 					},
 					"url": "https://output.circle-artifacts.com/output/job/${CIRCLE_WORKFLOW_JOB_ID}/artifacts/${CIRCLE_NODE_INDEX}/home/circleci/project/allure-report1/index.html"
+				},
+				{
+					"type": "button",
+					"text": {
+						"type": "plain_text",
+						"text": "View Job"
+					},
+					"url": "${CIRCLE_BUILD_URL}"
 				}
 			]
 		}
