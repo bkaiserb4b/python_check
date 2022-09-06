@@ -44,7 +44,7 @@ jobs:
           name: upgrade webdriver manager
           # This assumes pytest is installed via the install-package step above
           command: |
-            echo 'export MY_ORB_TEMPLATE=$(cat .circleci/Template.json)' >> $BASH_ENV
+            echo 'export MY_ORB_TEMPLATE=$(cat Template.json)' >> $BASH_ENV
             pip install webdriver-manager -U
             google-chrome --version
 
