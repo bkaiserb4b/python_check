@@ -54,6 +54,7 @@
 			"elements": [
 				{
 					"type": "button",
+					"style": "danger",
 					"text": {
 						"type": "plain_text",
 						"text": "View report"
@@ -62,6 +63,7 @@
 				},
 				{
 					"type": "button",
+					"style": "danger",
 					"text": {
 						"type": "plain_text",
 						"text": "View Job"
