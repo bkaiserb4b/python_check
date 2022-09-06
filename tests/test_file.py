@@ -15,6 +15,8 @@ def open_browser():
 def click_login():
     browser.element(by.link_text('Log In')).click()
 
+@allure.feature('Check feature')
+@allure.story('Check Story')
 @allure.title('Check allure title')
 @pytest.mark.xfail(condition=lambda: True, reason='this test is expecting failure')
 def test_answer():
