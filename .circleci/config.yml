@@ -122,24 +122,29 @@ workflows:
                 # This is the name of the workflow, feel free to change it to better match your workflow.
     # Inside the workflow, you define the jobs you want to run.
     jobs:
-      - build-and-test:
-          context: slack-secrets
-          type: approval
-      - build-and-test:
-          requires:
-            - build-and-test
-          context: slack-secrets
-
+      - build-and-test
+    triggers:
+      - schedule:
+          cron: "0 13 * * *"
+          filters:
+            branches:
+              only:
+                - main
   2ndworkflow:
     triggers:
       - schedule:
-          cron: "5 13 * * *"
+          cron: "37,39,41 6,7,8,9,10,11,12,13,14 * * *"
           filters:
             branches:
               only:
                 - test_branch
     jobs:
       - check-2nd-job:
+          context: slack-secrets
+          type: approval
+      - check-2nd-job:
+          requires:
+            - check-2nd-job
           context: slack-secrets
 
 
