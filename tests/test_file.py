@@ -17,6 +17,7 @@ def click_login():
 
 
 # @allure.step('rest steps')
+@pytest.mark.xfail(condition=lambda: True, reason='this test is expecting failure')
 def test_answer():
     open_browser()
     click_login()
