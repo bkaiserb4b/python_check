@@ -15,8 +15,7 @@ def open_browser():
 def click_login():
     browser.element(by.link_text('Log In')).click()
 
-
-# @allure.step('rest steps')
+@allure.title('Check allure title')
 @pytest.mark.xfail(condition=lambda: True, reason='this test is expecting failure')
 def test_answer():
     open_browser()
@@ -26,7 +25,7 @@ def test_answer():
     #     .first.should(not have.text('Selenium automates browsers'))
     assert browser.element('#rememberMe').click().should_not(be.selected)
     time.sleep(1)
-    browser.element(by.class_name('tagline')).should(have.text('Remember'))
+    browser.element(by.class_name('tagline')).should(have.text('Rememberу'))
 
 
 def test_another():
