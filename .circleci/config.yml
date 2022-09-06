@@ -33,7 +33,6 @@ jobs:
     # CircleCI will report the results back to your VCS provider.
     steps:
       - checkout
-      - echo 'export MY_ORB_TEMPLATE=$(cat .circleci/Template.json)' >> $BASH_ENV
       - browser-tools/install-chrome
       - browser-tools/install-chromedriver
       - allure/install
@@ -45,6 +44,7 @@ jobs:
           name: upgrade webdriver manager
           # This assumes pytest is installed via the install-package step above
           command: |
+            echo 'export MY_ORB_TEMPLATE=$(cat .circleci/Template.json)' >> $BASH_ENV
             pip install webdriver-manager -U
             google-chrome --version
 
