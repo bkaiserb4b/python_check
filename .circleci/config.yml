@@ -92,6 +92,21 @@ jobs:
     docker:
       - image: cimg/python:3.9.10-browsers
     steps:
+      - slack/notify:
+          custom: |
+            {
+              "blocks": [
+                {
+                  "type": "section",
+                  "text": {
+                      "type": "mrkdwn",
+                      "text": "<!channel> :arrow_forward: *TESTS HAS BEEN STARTED*. \nWait for the finish notification."
+                  }
+                }
+              ]
+            }
+          event: always
+
       - checkout
       - browser-tools/install-chrome
       - browser-tools/install-chromedriver

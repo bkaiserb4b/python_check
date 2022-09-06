@@ -5,7 +5,7 @@
 			"type": "header",
 			"text": {
 				"type": "plain_text",
-				"text": "Tests Succeeded. :white_check_mark:",
+				"text": "Tests Succeeded. :white_check_mark: \nBuild #${CIRCLE_WORKFLOW_JOB_ID}",
 				"emoji": true
 			}
 		},
