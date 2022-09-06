@@ -60,6 +60,12 @@ jobs:
           pip-dependency-file: requirements.txt  # if you have a different name for your requirements file, maybe one that combines your runtime and test requirements.
 
       - run:
+          name: install my own pattern for notifications
+          command: |
+            echo 'export FAILED_TEMPLATE=$(cat .circleci/FailedTemplate.json)' >> $BASH_ENV
+            echo 'export SUCCESS_TEMPLATE=$(cat .circleci/SuccessTemplate.json)' >> $BASH_ENV
+
+      - run:
           name: upgrade webdriver manager
           # This assumes pytest is installed via the install-package step above
           command: | 
