@@ -41,8 +41,8 @@ jobs:
                   "fields": [
                     {
                       "type": "plain_text",
-                      "text": "@all :arrow_forward:*TESTS HAVE BEEN STARTED*",
-                      "emoji": false
+                      "text": "<!channel> :arrow_forward: *TESTS HAS BEEN STARTED*",
+                      "emoji": true
                     }
                   ]
                 }
