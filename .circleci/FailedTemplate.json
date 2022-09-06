@@ -56,9 +56,9 @@
 					"type": "button",
 					"text": {
 						"type": "plain_text",
-						"text": "View artifacts"
+						"text": "View Job"
 					},
-					"url": "${CIRCLE_BUILD_URL}/artifacts"
+					"url": "${CIRCLE_BUILD_URL/artifacts}"
 				}
 			]
 		}
