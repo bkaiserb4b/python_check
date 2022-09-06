@@ -156,12 +156,12 @@ workflows:
 
   version: 2
 
-  sample:
-                # This is the name of the workflow, feel free to change it to better match your workflow.
-    # Inside the workflow, you define the jobs you want to run.
-    jobs:
-      - build-and-test:
-          context: slack-secrets
+#  sample:
+#                # This is the name of the workflow, feel free to change it to better match your workflow.
+#    # Inside the workflow, you define the jobs you want to run.
+#    jobs:
+#      - build-and-test:
+#          context: slack-secrets
 #    triggers:
 #      - schedule:
 #          cron: "19 7 * * *"
@@ -170,13 +170,13 @@ workflows:
 #              only:
 #                - test_branch
   2ndworkflow:
-#    triggers:
-#      - schedule:
-#          cron: "19 7 * * *"
-#          filters:
-#            branches:
-#              only:
-#                - test_branch
+    triggers:
+      - schedule:
+          cron: "36 13 * * *"
+          filters:
+            branches:
+              only:
+                - test_branch
     jobs:
       - check-2nd-job:
           context: slack-secrets
