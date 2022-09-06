@@ -5,7 +5,7 @@
 			"type": "header",
 			"text": {
 				"type": "plain_text",
-				"text": "Tests Failed. :red_circle: \nBuild #${CIRCLE_WORKFLOW_JOB_ID}",
+				"text": "Tests Failed. :red_circle: \nBuild #${CIRCLE_BUILD_NUM}",
 				"emoji": true
 			}
 		},
