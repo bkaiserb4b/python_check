@@ -125,7 +125,7 @@ workflows:
       - build-and-test
     triggers:
       - schedule:
-          cron: "16 13 * * *"
+          cron: "17 7 * * *"
           filters:
             branches:
               only:
@@ -133,7 +133,7 @@ workflows:
   2ndworkflow:
     triggers:
       - schedule:
-          cron: "16 13 * * *"
+          cron: "17 7 * * *"
           filters:
             branches:
               only:
