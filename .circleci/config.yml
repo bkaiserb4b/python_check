@@ -38,13 +38,10 @@ jobs:
               "blocks": [
                 {
                   "type": "section",
-                  "fields": [
-                    {
-                      "type": "plain_text",
-                      "text": "<@channel> :arrow_forward: *TESTS HAS BEEN STARTED*",
-                      "emoji": true
-                    }
-                  ]
+                  "text": {
+                      "type": "mrkdwn",
+                      "text": "<!channel> :arrow_forward: *TESTS HAS BEEN STARTED*. \nWait for the finish notification."
+                  }
                 }
               ]
             }
