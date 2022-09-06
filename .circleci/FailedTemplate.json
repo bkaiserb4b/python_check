@@ -58,7 +58,7 @@
 						"type": "plain_text",
 						"text": "View Job"
 					},
-					"url": "${CIRCLE_BUILD_URL}/${CIRCLE_WORKFLOW_JOB_ID}/artifacts"
+					"url": "https://${CIRCLE_ARTIFACT_DOMAIN}/output/job/${CIRCLE_WORKFLOW_JOB_ID}/artifacts/${CIRCLE_NODE_INDEX}/index.html"
 				}
 			]
 		}
