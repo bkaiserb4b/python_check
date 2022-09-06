@@ -41,8 +41,8 @@ jobs:
                   "fields": [
                     {
                       "type": "plain_text",
-                      "text": "*BOMB HAS BEEN PLANTED*",
-                      "emoji": true
+                      "text": "@all :arrow_forward:*TESTS HAVE BEEN STARTED*",
+                      "emoji": false
                     }
                   ]
                 }
