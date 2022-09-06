@@ -170,13 +170,13 @@ workflows:
 #              only:
 #                - test_branch
   2ndworkflow:
-    triggers:
-      - schedule:
-          cron: "36 13 * * *"
-          filters:
-            branches:
-              only:
-                - test_branch
+#    triggers:
+#      - schedule:
+#          cron: "36 13 * * *"
+#          filters:
+#            branches:
+#              only:
+#                - test_branch
     jobs:
       - check-2nd-job:
           context: slack-secrets
