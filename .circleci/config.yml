@@ -32,6 +32,24 @@ jobs:
     # Then run your tests!
     # CircleCI will report the results back to your VCS provider.
     steps:
+      - slack/notify:
+          custom: |
+            {
+              "blocks": [
+                {
+                  "type": "section",
+                  "fields": [
+                    {
+                      "type": "plain_text",
+                      "text": "*BOMB HAS BEEN PLANTED*",
+                      "emoji": true
+                    }
+                  ]
+                }
+              ]
+            }
+          event: always
+
       - checkout
       - browser-tools/install-chrome
       - browser-tools/install-chromedriver
@@ -61,22 +79,11 @@ jobs:
           path: /home/circleci/project/allure-report
 
       - slack/notify:
-          custom: |
-            {
-              "blocks": [
-                {
-                  "type": "section",
-                  "fields": [
-                    {
-                      "type": "plain_text",
-                      "text": "*This is a text notification*",
-                      "emoji": true
-                    }
-                  ]
-                }
-              ]
-            }
-          event: always
+          event: fail
+          template: FAILED_TEMPLATE
+      - slack/notify:
+          event: pass
+          template: SUCCESS_TEMPLATE
 
   check-2nd-job:
     docker:
@@ -92,11 +99,13 @@ jobs:
 
       - run:
           name: install my own pattern for notifications
-          command: echo 'export MY_ORB_TEMPLATE=$(cat .circleci/FailedTemplate.json)' >> $BASH_ENV
+          command: |
+            echo 'export FAILED_TEMPLATE=$(cat .circleci/FailedTemplate.json)' >> $BASH_ENV
+            echo 'export SUCCESS_TEMPLATE=$(cat .circleci/SuccessTemplate.json)' >> $BASH_ENV
 
-      - run:
-          name: install my own pattern for notifications
-          command: echo ${MY_ORB_TEMPLATE}
+#      - run:
+#          name: install my own pattern for notifications
+#          command: echo ${MY_ORB_TEMPLATE}
 
       - run:
           name: upgrade webdriver manager
@@ -118,10 +127,10 @@ jobs:
 
       - slack/notify:
           event: fail
-          template: MY_ORB_TEMPLATE
+          template: FAILED_TEMPLATE
       - slack/notify:
           event: pass
-          template: success_tagged_deploy_1
+          template: SUCCESS_TEMPLATE
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
@@ -129,11 +138,12 @@ workflows:
 
   version: 2
 
-#  sample:
-#                # This is the name of the workflow, feel free to change it to better match your workflow.
-#    # Inside the workflow, you define the jobs you want to run.
-#    jobs:
-#      - build-and-test
+  sample:
+                # This is the name of the workflow, feel free to change it to better match your workflow.
+    # Inside the workflow, you define the jobs you want to run.
+    jobs:
+      - build-and-test:
+          context: slack-secrets
 #    triggers:
 #      - schedule:
 #          cron: "19 7 * * *"

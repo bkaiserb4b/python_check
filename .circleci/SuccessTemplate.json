@@ -1,11 +1,11 @@
 {
-	"text": "Tests failed.",
+	"text": "Tests succeeded!",
 	"blocks": [
 		{
 			"type": "header",
 			"text": {
 				"type": "plain_text",
-				"text": "Tests Failed. :red_circle:",
+				"text": "Tests Succeeded. :white_check_mark:",
 				"emoji": true
 			}
 		},
@@ -28,6 +28,10 @@
 				{
 					"type": "mrkdwn",
 					"text": "*Branch*: $CIRCLE_BRANCH"
+				},
+				{
+					"type": "mrkdwn",
+					"text": "*Commit*: $CIRCLE_SHA1"
 				},
 				{
 					"type": "mrkdwn",
@@ -54,7 +58,7 @@
 			"elements": [
 				{
 					"type": "button",
-					"style": "danger",
+					"style": "primary",
 					"text": {
 						"type": "plain_text",
 						"text": "View report"
@@ -63,7 +67,7 @@
 				},
 				{
 					"type": "button",
-					"style": "danger",
+					"style": "primary",
 					"text": {
 						"type": "plain_text",
 						"text": "View Job"
