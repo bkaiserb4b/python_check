@@ -17,6 +17,9 @@ def click_login():
     browser.element(by.link_text('Log In')).click()
 
 
+@allure.feature('Check Evernote login')
+@allure.story('Check successful opening on login page')
+@allure.title('Check text 2')
 # @allure.step('rest steps')
 def test_answer():
     open_browser()

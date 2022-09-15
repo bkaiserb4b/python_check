@@ -27,7 +27,7 @@ def test_answer():
     #     .first.should(not have.text('Selenium automates browsers'))
     assert browser.element('#rememberMe').click().should_not(be.selected)
     time.sleep(1)
-    browser.element(by.class_name('tagline')).should(have.text('Rememberу'))
+    browser.element(by.class_name('tagline')).should(have.text('Remember'))
 
 @allure.feature('Check AngularJS site')
 @allure.story('Check todo list')
