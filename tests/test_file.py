@@ -15,6 +15,7 @@ def open_browser():
 def click_login():
     browser.element(by.link_text('Log In')).click()
 
+@allure.epic("bla")
 @allure.feature('Check feature')
 @allure.story('Check Story')
 @allure.title('Check allure title')

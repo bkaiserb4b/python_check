@@ -133,7 +133,7 @@ jobs:
 
       - run:
           name: run tests
-          command: pytest  tests/test_file.py --alluredir=allure-results
+          command: pytest  --alluredir=allure-results # tests/test_file.py
 
       - run:
           name: generate allure report
