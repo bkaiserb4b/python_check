@@ -9,11 +9,12 @@ import allure
 def open_browser():
     browser.open('https://evernote.com/')
     browser.driver.maximize_window()
+    browser.element(by.class_name('modal-close')).click()
 
 
 @allure.step('click \'Log In\' button')
 def click_login():
-    browser.element(by.class_name('modal-close')).click()
+
     browser.element(by.link_text('Log In')).click()
 
 
@@ -22,7 +23,7 @@ def click_login():
 @allure.title('Check text 2')
 # @allure.step('rest steps')
 def test_answer():
-    open_browser()
+    # open_browser()
     click_login()
     browser.element('#username').send_keys('bib')
     # browser.all('.srg .g').should(have.size(10))\
