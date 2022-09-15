@@ -13,6 +13,7 @@ def open_browser():
 
 @allure.step('click \'Log In\' button')
 def click_login():
+    browser.element(by.class_name('modal-close')).click()
     browser.element(by.link_text('Log In')).click()
 
 

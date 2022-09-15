@@ -15,11 +15,10 @@ def open_browser():
 def click_login():
     browser.element(by.link_text('Log In')).click()
 
-@allure.epic("bla")
-@allure.feature('Check feature')
-@allure.story('Check Story')
-@allure.title('Check allure title')
-@pytest.mark.xfail(condition=lambda: True, reason='this test is expecting failure')
+@allure.feature('Check Evernote login')
+@allure.story('Check successful opening on login page')
+@allure.title('Check text')
+# @pytest.mark.xfail(condition=lambda: True, reason='this test is expecting failure')
 def test_answer():
     open_browser()
     click_login()
@@ -30,7 +29,9 @@ def test_answer():
     time.sleep(1)
     browser.element(by.class_name('tagline')).should(have.text('Rememberу'))
 
-
+@allure.feature('Check AngularJS site')
+@allure.story('Check todo list')
+@allure.title('Check that option in todo can be checked')
 def test_another():
     browser.open('https://angularjs.org/')
     browser.driver.maximize_window()
