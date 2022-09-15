@@ -22,7 +22,7 @@ def click_login():
 def test_answer():
     open_browser()
     click_login()
-    browser.element('#username').send_keys('bib')
+    browser.element('#username').send_keys('biba')
     # browser.all('.srg .g').should(have.size(10))\
     #     .first.should(not have.text('Selenium automates browsers'))
     assert browser.element('#rememberMe').click().should_not(be.selected)
