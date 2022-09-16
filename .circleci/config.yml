@@ -152,17 +152,17 @@ jobs:
       - run:
           name: run tests
           no_output_timeout: 30m
-          command: pytest  --alluredir=allure-results --reruns 5 --reruns-delay 1 || true # tests/test_file.py
+          command: pytest  --alluredir=allure-results --reruns 5 --reruns-delay 1 # tests/test_file.py
 
-      - allure/report
+#      - allure/report
 
-#      - run:
-#          name: generate allure report
-#          command: allure generate --clean --output allure-report1
-#          when: always
+      - run:
+          name: generate allure report
+          command: allure generate --clean --output allure-report1
+          when: always
 
-#      - store_artifacts:
-#          path: /home/circleci/project/allure-report1
+      - store_artifacts:
+          path: /home/circleci/project/allure-report1
 
       - slack/notify:
           event: fail
