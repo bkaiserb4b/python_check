@@ -132,16 +132,37 @@ jobs:
             google-chrome --version
 
       - run:
-          name: run tests
-          command: pytest  --alluredir=allure-results || true # --reruns 5 --reruns-delay 1  tests/test_file.py
+          name: Install pyautogui and upgrade pip
+          command: |
+            touch ~/.Xauthority
+            pip install --upgrade pip
+            pip install pyautogui
 
       - run:
-          name: generate allure report
-          command: allure generate --clean --output allure-report1
-          when: always
+          name: Install NPM
+          command: |
+            curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.3/install.sh | bash
+            source ~/.nvm/nvm.sh
+            nvm install node
+            npm i -g @vatom/cli
+            node -v
+            npm -v
+            vatom --version
 
-      - store_artifacts:
-          path: /home/circleci/project/allure-report1
+      - run:
+          name: run tests
+          no_output_timeout: 30m
+          command: pytest  --alluredir=allure-results --reruns 5 --reruns-delay 1  # tests/test_file.py
+
+      - allure/report
+
+#      - run:
+#          name: generate allure report
+#          command: allure generate --clean --output allure-report1
+#          when: always
+
+#      - store_artifacts:
+#          path: /home/circleci/project/allure-report1
 
       - slack/notify:
           event: fail
