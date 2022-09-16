@@ -27,7 +27,7 @@ def test_answer():
     #     .first.should(not have.text('Selenium automates browsers'))
     assert browser.element('#rememberMe').click().should_not(be.selected)
     time.sleep(1)
-    browser.element(by.class_name('tagline')).should(have.text('Remembere'))
+    browser.element(by.class_name('tagline')).should(have.text('Remember'))
 
 @allure.feature('Check AngularJS site')
 @allure.story('Check todo list')
@@ -36,7 +36,7 @@ def test_another():
     browser.open('https://angularjs.org/')
     browser.driver.maximize_window()
     browser.all(by.css('[ng-repeat="todo in todoList.todos"] input'))[1].click()
-    browser.all(by.css('[ng-repeat="todo in todoList.todos"] input'))[1].should(have.css_class('ng-not-emptyy'))
+    browser.all(by.css('[ng-repeat="todo in todoList.todos"] input'))[1].should(have.css_class('ng-not-empty'))
     time.sleep(1)
     # browser.element('#username').send_keys('bib')
     # # browser.all('.srg .g').should(have.size(10))\
