@@ -40,7 +40,7 @@ jobs:
                   "type": "section",
                   "text": {
                       "type": "mrkdwn",
-                      "text": "<!channel> :arrow_forward: *TESTS HAS BEEN STARTED*. \nWait for the finish notification."
+                      "text": "<!channel> :arrow_forward: *E2E TESTING HAS BEEN STARTED*. \nWait for the finish notification."
                   }
                 }
               ]
@@ -100,7 +100,7 @@ jobs:
                   "type": "section",
                   "text": {
                       "type": "mrkdwn",
-                      "text": "<!channel> :arrow_forward: *TESTS HAS BEEN STARTED*. \nWait for the finish notification."
+                      "text": "<!channel> :arrow_forward: *E2E TESTING HAS BEEN STARTED*. \nWait for the finish notification."
                   }
                 }
               ]
@@ -194,7 +194,7 @@ workflows:
   1stworkflow:
     triggers:
       - schedule:
-          cron: "0 12 * * *"
+          cron: "0 6 * * *"
           filters:
             branches:
               only:
