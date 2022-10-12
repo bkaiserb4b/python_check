@@ -93,6 +93,7 @@ jobs:
       - image: cimg/python:3.9.10-browsers
     steps:
       - slack/notify:
+          channel: 'C0412LCU6TD'
           custom: |
             {
               "blocks": [
@@ -165,9 +166,11 @@ jobs:
           path: /home/circleci/project/allure-report1
 
       - slack/notify:
+          channel: 'C0412LCU6TD'
           event: fail
           template: FAILED_TEMPLATE
       - slack/notify:
+          channel: 'C0412LCU6TD'
           event: pass
           template: SUCCESS_TEMPLATE
 
