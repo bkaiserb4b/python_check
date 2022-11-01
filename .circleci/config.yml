@@ -207,20 +207,8 @@ workflows:
           context: slack-secrets
 
   2ndworkflow:
-#    triggers:
-#      - schedule:
-#          cron: "36 13 * * *"
-#          filters:
-#            branches:
-#              only:
-#                - test_branch
     jobs:
       - check-2nd-job:
           context: slack-secrets
-#          type: approval
-#      - check-2nd-job:
-#          requires:
-#            - check-2nd-job
-#          context: slack-secrets
 
 
