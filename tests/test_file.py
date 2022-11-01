@@ -1,9 +1,8 @@
 import pytest
 from selene.support.shared import browser
-from selene import by, be, have
+from selene import by, be, have, query
 import time
 import allure
-
 
 @allure.step('open browser')
 def open_browser():
@@ -35,9 +34,11 @@ def test_answer():
 def test_another():
     browser.open('https://angularjs.org/')
     browser.driver.maximize_window()
+    button_primary = browser.element(by.class_name('button button-large button-primary has-shield has-shadow')).get(query.text)
     browser.all(by.css('[ng-repeat="todo in todoList.todos"] input'))[1].click()
     browser.all(by.css('[ng-repeat="todo in todoList.todos"] input'))[1].should(have.css_class('ng-not-empty'))
     time.sleep(1)
+    allure.dynamic.title(button_primary)
     # browser.element('#username').send_keys('bib')
     # # browser.all('.srg .g').should(have.size(10))\
     # #     .first.should(not have.text('Selenium automates browsers'))
